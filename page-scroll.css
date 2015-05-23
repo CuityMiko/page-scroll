@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1432364260_7657838.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1432364260_7657838.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1432364260_7657838.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1432364260_7657838.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1432364260_7657838.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family: "iconfont";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    display: inline-block;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-scroll {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  position: fixed;
+  top: 70%;
+  left: 30px;
+  text-align: center;
+}
+.page-scroll .to-top,
+.page-scroll .to-bottom {
+  height: 48px;
+  overflow: hidden;
+}
+.page-scroll .to-top {
+  border-bottom: 1px solid #ccc;
+}
+.page-scroll .iconfont {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+  display: block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 30px;
+}
+.page-scroll .info {
+  width: 40px;
+  height: 0;
+  color: #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.page-scroll .to-top:hover .info,
+.page-scroll .to-bottom:hover .info  {
+  height: 38px;
+}
+.page-scroll .to-top:hover .iconfont,
+.page-scroll .to-bottom:hover .iconfont {
+  height: 0;
+}
+.page-scroll .iconfont,
+.page-scroll .info {
+  overflow: hidden;
+  -webkit-transition: height 0.5s linear;
+     -moz-transition: height 0.5s linear;
+          transition: height 0.5s linear;
+}

@@ -10,7 +10,8 @@ var pageScroll = (function (w) {
       root: '.page-scroll',
       toTop: '.to-top',
       toBottom: '.to-bottom'
-    }
+    },
+    duration: 30
   };
 
   var pageScroll = {
@@ -26,7 +27,7 @@ var pageScroll = (function (w) {
         var p = e.target.parentNode;
 
         var currentY = me.getScrollPos().y;
-        var viewportHeight = me.getViewportSize();
+        var viewportHeight = me.getViewportSize().height;
         var targetY = 0;
 
         if (p.classList.contains(config.cls.toBottom)) {
@@ -35,6 +36,9 @@ var pageScroll = (function (w) {
         console.log(targetY)
         window.scrollTo(0, targetY);
       }, false);
+    },
+    pageScroll: function (currentY, targetY) {
+
     },
     getScrollPos: function (win) {
       win = win || w;

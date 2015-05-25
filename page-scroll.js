@@ -11,12 +11,16 @@ var pageScroll = (function (w) {
       toTop: '.to-top',
       toBottom: '.to-bottom'
     },
-    duration: 30
+    duration: 10,
+    tpl: '  <ul class="page-scroll">\n    <li class="to-top">\n      <a class="iconfont icon-to-top" href="#">&#xe601;</a>\n      <div class="info">\u8fd4\u56de\u9876\u90e8</div>\n    </li>\n    <li class="to-bottom">\n      <a class="iconfont icon-to-bottom" href="#">&#xe600;</a>\n      <div class="info">\u8fd4\u56de\u5e95\u90e8</div>\n    </li>\n  </ul>\n'
   };
 
   var pageScroll = {
-    init: function () {
+    init: function (arg) {
       var me = this;
+
+      var container = doc.querySelector(arg.container);
+      container.innerHTML = config.tpl;
 
       me.root = doc.querySelector(config.selector.root);
       me.documentHeight = me.getDocumentRect().height;
@@ -33,12 +37,27 @@ var pageScroll = (function (w) {
         if (p.classList.contains(config.cls.toBottom)) {
           targetY = me.documentHeight - viewportHeight;
         }
-        console.log(targetY)
-        window.scrollTo(0, targetY);
+
+        me.pageScroll(currentY, targetY);
       }, false);
     },
     pageScroll: function (currentY, targetY) {
+      var distance = targetY - currentY;
+      var step = 0.1 * distance;
 
+      function animate() {
+        currentY += step;
+        step = 0.1 * (targetY - currentY);
+
+        window.scrollTo(0, currentY);
+        console.log(currentY)
+
+        if (Math.abs(targetY - currentY) > 5) {
+          setTimeout(animate, config.duration);
+        }
+      }
+
+      animate();
     },
     getScrollPos: function (win) {
       win = win || w;

@@ -11,3 +11,6 @@
     container: '.page-scroll-container'
   });
 ```
+
+
+demo: [http://qiudeqing.com/page-scroll/]()

@@ -50,7 +50,6 @@ var pageScroll = (function (w) {
         step = 0.1 * (targetY - currentY);
 
         window.scrollTo(0, currentY);
-        console.log(currentY)
 
         if (Math.abs(targetY - currentY) > 5) {
           setTimeout(animate, config.duration);
